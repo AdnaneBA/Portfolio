@@ -10,6 +10,15 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
+
+    document.body.classList.add("loaded");
+
+    const graySquare = document.querySelector(".gray-square");
+
+    // Add the 'zoom-out' class to trigger the animation after a short delay
+    setTimeout(() => {
+        graySquare.classList.add("zoom-out");
+    }, 1000);
 });
 
 function scrollToSection(sectionId) {
