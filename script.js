@@ -1,22 +1,19 @@
 // script.js
 document.addEventListener("DOMContentLoaded", function () {
-    animateHeader();
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
 });
 
-function animateHeader() {
-    const header = document.querySelector("header");
-
-    // Example animation: Change background color every 2 seconds
-    setInterval(() => {
-        header.style.backgroundColor = getRandomColor();
-    }, 2000);
-}
-
-function getRandomColor() {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+function scrollToSection(sectionId) {
+    document.querySelector(sectionId).scrollIntoView({
+        behavior: 'smooth'
+    });
 }
